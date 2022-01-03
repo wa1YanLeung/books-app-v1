@@ -2,13 +2,13 @@ import React from 'react'
 import BookItem from './BookItem'
 import Spinner from '../ui/Spinner'
 
-const BookGrid = ({ items, isLoading, setDescModalOpen }) => {
+const BookGrid = ({ items, isLoading }) => {
   return isLoading ? (
     <Spinner />
   ) : (
     <section className='cards'>
-      {items.map((item, i, descModalOpen) => (
-        <BookItem key={item.id} item={item} setDescModalOpen={setDescModalOpen}></BookItem>
+      {items.map((item) => (
+        <BookItem key={item.id} item={item}></BookItem>
       ))}
     </section>
   )

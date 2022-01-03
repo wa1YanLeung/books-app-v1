@@ -12,6 +12,7 @@ const Search = ({ getQuery, handleSubmit, setSummaryModalOpen,
   }
 
   // Get name of the single author who appears most commonly in the results
+  // If equal count, get first one
   const funcMaxAuthor = (items) => {
     let authorCounter = new Map();
     let maxCount = 0;
@@ -28,6 +29,7 @@ const Search = ({ getQuery, handleSubmit, setSummaryModalOpen,
             authorCounter.set(author, 1);
           }
           if (authorCounter.get(author) > maxCount) {
+            maxCount = authorCounter.get(author);
             maxAuthor = author;
           }
         }
@@ -36,6 +38,7 @@ const Search = ({ getQuery, handleSubmit, setSummaryModalOpen,
     return maxAuthor
   }
 // earliest and most recent publication dates
+// assume '2015-03' > '2015'
   const funcPublicationDate = (items) => {
   let earliestDate = "";
   let mostRecentDate = "";
